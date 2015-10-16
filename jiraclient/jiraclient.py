@@ -140,6 +140,9 @@ class Jiraclient(object):
  - Create an issue with a specified Component and Fix Version 
    and assign it to myself:
    jiraclient.py -u 'username' -p 'jirapassword' -A 'username' -P INFOSYS -Q major -F 10000  -C 10003 -T epic -S 'Investigate Platform IFS'
+
+ - Unassign an existing issue:
+   jiraclient.py -u 'username' -p 'jirapassword' -i INFO-1000 -A Unassigned
 """
     optParser = OptionParser(usage)
     optParser.add_option(
@@ -301,7 +304,7 @@ class Jiraclient(object):
       "-A","--assignee",
       action="store",
       dest="assignee",
-      help="Jira assignee",
+      help="Jira assignee (specify Unassigned to unassign the issue)",
       default=None,
     )
     optParser.add_option(
